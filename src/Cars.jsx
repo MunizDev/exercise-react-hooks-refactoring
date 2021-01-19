@@ -1,5 +1,6 @@
 // src/Cars.jsx
 
+
 import React, { useContext } from 'react';
 import CarsContext from './context/CarsContext';
 import carBlue from './images/carBlue.jpeg';
@@ -7,9 +8,8 @@ import carRed from './images/carRed.jpeg';
 import carYellow from './images/carYellow.jpeg';
 
 function Cars() {
-  const { cars, moveCar } = useContext(CarsContext);
-
-  const { redCar, blueCar, yellowCar } = cars;
+  const { carsSignal, moveCar } = useContext(CarsContext);
+  const { redCar, blueCar, yellowCar } = carsSignal.cars;
   return (
     <div>
       <div>

@@ -5,19 +5,38 @@ import React, { useState } from 'react';
 import CarsContext from './CarsContext';
 
 function Provider({ children }) {
-  const [cars, setCars] = useState({
-    red: false,
-    blue: false,
-    yellow: false,
-  });
+  const initialState = {
+    cars: {
+      red: false,
+      blue: false,
+      yellow: false,
+    },
+    signal: {
+      color: 'red',
+    },
+  };
+
+  const [carsSignal, setCarsSignal] = useState(initialState);
 
   const moveCar = (car, side) => {
-    setCars({ ...cars, [car]: side });
+    setCarsSignal({
+      ...carsSignal,
+      cars: { ...carsSignal.cars, [car]: side },
+    });
+  };
+
+  const changeSignal = (signalColor) => {
+    setCarsSignal({
+      ...carsSignal,
+      signal: { ...carsSignal, color: signalColor },
+    });
   };
 
   const context = {
-    cars,
+    carsSignal,
     moveCar,
+    changeSignal,
+
   };
 
   return (
