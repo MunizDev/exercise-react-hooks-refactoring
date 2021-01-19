@@ -36,6 +36,7 @@ function Provider({ children }) {
     carsSignal,
     moveCar,
     changeSignal,
+
   };
 
   return (
